@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">საეკლესიო კალენდარი</string>
+    <string name="title_daily">დღიური</string>
+    <string name="title_eucharist">ზიარება</string>
+    <string name="title_prayers">მორწმუნეები</string>
+    <string name="title_library">ბიბლიოთეკა</string>
+</resources>

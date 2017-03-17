@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_daily"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_daily" />
+
+    <item
+        android:id="@+id/navigation_eucharist"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_eucharist" />
+
+    <item
+        android:id="@+id/navigation_prayers"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_prayers" />
+
+    <item
+        android:id="@+id/navigation_library"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_library" />
+
+</menu>
