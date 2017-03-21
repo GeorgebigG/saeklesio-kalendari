@@ -1,17 +1,18 @@
 package com.sitename.android.saeklesiokalendari.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.sitename.android.saeklesiokalendari.R;
 
-public class MainActivity extends AppCompatActivity
-{
+public class FirstPage extends AppCompatActivity {
 
     private Daily daily;
     private Eucharist eucharist;
@@ -19,34 +20,36 @@ public class MainActivity extends AppCompatActivity
     private Library library;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_first_page);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("");
 
         daily = new Daily();
         eucharist = new Eucharist();
         prayers = new Prayers();
         library = new Library();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content, daily).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, daily).commit();
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.tabs);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_daily:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.content, daily).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, daily).commit();
                         return true;
                     case R.id.navigation_eucharist:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.content, eucharist).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, eucharist).commit();
                         return true;
                     case R.id.navigation_prayers:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.content, prayers).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, prayers).commit();
                         return true;
                     case R.id.navigation_library:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.content, library).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, library).commit();
                         return true;
                 }
                 return false;
@@ -56,25 +59,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-
-        if (item.getItemId() == R.id.preferences)
-        {
-            startActivity(new Intent(this, Settings.class));
-        }
-
-
-        return true;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -2,26 +2,4 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <item
-        android:id="@+id/preferences"
-        android:icon="@mipmap/ic_settings_white_24dp"
-        android:orderInCategory="3"
-        android:title="Info"
-        app:showAsAction="ifRoom">
-
-    <!--<menu>-->
-        <!--<item-->
-            <!--android:id="@+id/action_reply"-->
-            <!--android:title="bhb" />-->
-
-        <!--<item-->
-            <!--android:id="@+id/action_replyall"-->
-            <!--android:title="hfl" />-->
-
-        <!--<item-->
-            <!--android:id="@+id/action_forward"-->
-            <!--android:title="forward" />-->
-    <!--</menu>-->
-</item>
 </menu>
