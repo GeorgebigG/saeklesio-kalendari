@@ -12,6 +12,10 @@ import com.sitename.android.saeklesiokalendari.R;
 
 public class Daily extends Fragment {
 
+    public static int year;
+    public static int month;
+    public static int day;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
