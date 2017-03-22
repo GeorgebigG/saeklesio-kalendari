@@ -1,5 +1,6 @@
 package com.sitename.android.saeklesiokalendari.Activities;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

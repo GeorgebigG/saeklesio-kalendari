@@ -4,9 +4,6 @@
     <string name="title_eucharist">ზიარება</string>
     <string name="title_prayers">ლოცვები</string>
     <string name="title_library">ბიბლიოთეკა</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="title_activity_first_page">FirstPage</string>
+    <string name="title_date">თარიღი</string>
+    <string name="title_activity_settings">პარამეტრები</string>
 </resources>

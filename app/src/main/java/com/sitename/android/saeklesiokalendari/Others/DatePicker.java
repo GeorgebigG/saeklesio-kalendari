@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 
+import com.sitename.android.saeklesiokalendari.Activities.Daily;
+
 /**
  * Created by George on 3/21/2017.
  */
@@ -21,18 +23,19 @@ public class DatePicker extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         DatePickerDialog dialog = new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
-
         return dialog;
     }
 
     DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
         @Override
         public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
             DatePicker.this.year = year;
             DatePicker.this.month = month;
-            DatePicker.this.day = day;
+            DatePicker.this.day = dayOfMonth;
 
-            // TODO: DASAMTAVREBELIA...
+            Daily.main_calendar.set(year, month, day);
+            Daily.setDate();
         }
     };
 }
