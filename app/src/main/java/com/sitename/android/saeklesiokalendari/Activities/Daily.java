@@ -14,6 +14,8 @@ import com.sitename.android.saeklesiokalendari.R;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Daily extends Fragment implements View.OnClickListener {
 
@@ -23,10 +25,14 @@ public class Daily extends Fragment implements View.OnClickListener {
     private static TextView date;
     public static Calendar main_calendar = Calendar.getInstance();
 
+    private static Map<String, String> translator;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_daily, container, false);
+
+        makeTranslator();
 
         date = (TextView) v.findViewById(R.id.date);
         setDate();
@@ -42,6 +48,17 @@ public class Daily extends Fragment implements View.OnClickListener {
         v.findViewById(R.id.calendar).setOnClickListener(this);
 
         return v;
+    }
+
+    private static void makeTranslator() {
+        translator = new HashMap<String, String>();
+        translator.put("Sunday",    "კვირა");
+        translator.put("Monday",    "ორშაბათი");
+        translator.put("Tuesday",   "სამშაბათი");
+        translator.put("Wednesday", "ოთხშაბათი");
+        translator.put("Thursday",  "ხუთშაბათი");
+        translator.put("Friday",    "პარასკევი");
+        translator.put("Saturday",  "შაბათი");
     }
 
     @Override
@@ -71,8 +88,13 @@ public class Daily extends Fragment implements View.OnClickListener {
         day = main_calendar.get(Calendar.DAY_OF_MONTH);
         month = main_calendar.get(Calendar.MONTH);
         year = main_calendar.get(Calendar.YEAR);
+
         DateFormat formater = new SimpleDateFormat("EEEE, MMMM dd, yyyy");
-        date.setText(formater.format(main_calendar.getTime()));
+        String s = formater.format(main_calendar.getTime());
+        String dayName = translator.get(s.split(",")[0]);
+        System.out.println(dayName);
+
+        date.setText(s);
     }
 }
 
