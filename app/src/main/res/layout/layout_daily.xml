@@ -31,6 +31,7 @@
                     android:background="?android:selectableItemBackground"/>
 
                 <ImageButton
+                    android:id="@+id/yesterday"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:src="@mipmap/ic_arrow_back_white_24dp"
@@ -38,6 +39,7 @@
                     android:background="?android:selectableItemBackground"/>
 
                 <ImageButton
+                    android:id="@+id/tomorrow"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:src="@mipmap/ic_arrow_forward_white_24dp"

@@ -31,6 +31,9 @@ public class Daily extends Fragment implements View.OnClickListener {
         date = (TextView) v.findViewById(R.id.date);
         setDate();
 
+        v.findViewById(R.id.yesterday).setOnClickListener(this);
+        v.findViewById(R.id.tomorrow).setOnClickListener(this);
+
         v.findViewById(R.id.d_pref).setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -44,10 +47,19 @@ public class Daily extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.calendar:
                 DatePicker picker = new DatePicker(year, month, day);
                 picker.show(getActivity().getFragmentManager().beginTransaction(), "");
+                break;
+
+            case R.id.yesterday:
+                main_calendar.add(Calendar.DAY_OF_MONTH, -1);
+                setDate();
+                break;
+
+            case R.id.tomorrow:
+                main_calendar.add(Calendar.DAY_OF_MONTH, 1);
+                setDate();
                 break;
 
             default:
@@ -63,3 +75,15 @@ public class Daily extends Fragment implements View.OnClickListener {
         date.setText(formater.format(main_calendar.getTime()));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
