@@ -2,4 +2,10 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:icon="@mipmap/ic_settings_white_24dp"
+        android:title="Prefs"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+
 </menu>

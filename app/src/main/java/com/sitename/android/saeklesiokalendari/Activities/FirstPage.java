@@ -1,5 +1,7 @@
 package com.sitename.android.saeklesiokalendari.Activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -18,15 +20,15 @@ public class FirstPage extends AppCompatActivity {
     private Eucharist eucharist;
     private Prayers prayers;
     private Library library;
+    private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         setTitle("");
 
+        context = this;
         daily = new Daily();
         eucharist = new Eucharist();
         prayers = new Prayers();
@@ -58,10 +60,9 @@ public class FirstPage extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+    public static void settingButtonClicked() {
+        Intent intent = new Intent(context, Settings.class);
+        context.startActivity(intent);
     }
 }
 

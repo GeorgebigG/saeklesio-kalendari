@@ -15,6 +15,12 @@ public class Prayers extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_prayers, container, false);
+
+        v.findViewById(R.id.p_pref).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {FirstPage.settingButtonClicked();}
+        });
+
         return v;
     }
 }
