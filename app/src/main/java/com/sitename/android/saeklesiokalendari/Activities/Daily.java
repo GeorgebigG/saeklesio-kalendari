@@ -59,6 +59,20 @@ public class Daily extends Fragment implements View.OnClickListener {
         translator.put("Thursday",  "ხუთშაბათი");
         translator.put("Friday",    "პარასკევი");
         translator.put("Saturday",  "შაბათი");
+
+
+        translator.put("January",   "იანვარი");
+        translator.put("February",  "თებერვალი");
+        translator.put("March",     "მარტი");
+        translator.put("April",     "აპრილი");
+        translator.put("May",       "მაისი");
+        translator.put("June",      "ივნისი");
+        translator.put("July",      "ივლისი");
+        translator.put("August",    "აგვისტო");
+        translator.put("September", "სექტემბერი");
+        translator.put("October",   "ოქტომბერი");
+        translator.put("November",  "ნოემბერი");
+        translator.put("December",  "დეკემბერი");
     }
 
     @Override
@@ -93,6 +107,7 @@ public class Daily extends Fragment implements View.OnClickListener {
         String s = formater.format(main_calendar.getTime());
         String dayName = translator.get(s.split(",")[0]);
         System.out.println(dayName);
+        String monthName = translator.get(s.split(" ")[1]);
 
         date.setText(s);
     }
