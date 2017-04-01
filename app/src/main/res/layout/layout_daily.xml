@@ -79,7 +79,7 @@
         android:padding="@dimen/activity_horizontal_margin">
 
         <TextView
-            android:text="Date"
+            android:text="თარიღი"
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,6 +88,19 @@
             android:layout_alignParentTop="true"
             style="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/date"
+            android:text="@string/fasting"
+            style="@style/BasicTextView"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp" />
     </RelativeLayout>
 
 </RelativeLayout>
