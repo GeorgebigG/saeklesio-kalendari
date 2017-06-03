@@ -21,11 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"></LinearLayout>
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -34,14 +29,6 @@
                     android:textColor="@android:color/white"
                     style="@style/Base.TextAppearance.AppCompat.Medium"
                     android:gravity="center"/>
-
-                <ImageButton
-                    android:id="@+id/p_pref"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="?android:selectableItemBackground"
-                    android:src="@mipmap/ic_settings_white_24dp" />
 
             </LinearLayout>
 

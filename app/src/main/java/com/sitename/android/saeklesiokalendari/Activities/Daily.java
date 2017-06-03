@@ -108,7 +108,7 @@ public class Daily extends Fragment implements View.OnClickListener {
         String dayName = translator.get(s.split(",")[0]);
         String monthName = translator.get(s.split(" ")[1]);
 
-        date.setText(dayName + ", " + monthName + " " + new SimpleDateFormat("dd, yyyy").format(main_calendar.getTime()));
+        date.setText(dayName + ", " + new SimpleDateFormat("d").format(main_calendar.getTime()) + " " + monthName + ", " + new SimpleDateFormat("yyyy").format(main_calendar.getTime()));
     }
 }
 

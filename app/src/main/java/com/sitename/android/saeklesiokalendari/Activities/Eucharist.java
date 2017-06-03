@@ -16,10 +16,6 @@ public class Eucharist extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_eucharist, container, false);
 
-        v.findViewById(R.id.e_pref).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {FirstPage.settingButtonClicked();}});
-
         return v;
     }
 }
