@@ -21,11 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.Options"
+            android:label="@string/title_activity_eucharist_options"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

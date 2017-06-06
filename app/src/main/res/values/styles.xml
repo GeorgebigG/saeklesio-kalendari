@@ -21,4 +21,8 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="MyActivities">
+        <item name="android:background">@drawable/religious_background</item>
+    </style>
+
 </resources>
