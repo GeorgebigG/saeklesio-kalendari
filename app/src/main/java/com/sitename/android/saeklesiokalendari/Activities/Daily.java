@@ -1,20 +1,32 @@
 package com.sitename.android.saeklesiokalendari.Activities;
 
+import android.app.DatePickerDialog;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sitename.android.saeklesiokalendari.Others.DatePicker;
 import com.sitename.android.saeklesiokalendari.R;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Daily extends Fragment implements View.OnClickListener {
@@ -22,8 +34,13 @@ public class Daily extends Fragment implements View.OnClickListener {
     public static int year = 0;
     public static int month = 0;
     public static int day = 0;
-    private static TextView date;
+    private static TextView monthDate;
+    private static TextView dayDate;
     public static Calendar main_calendar = Calendar.getInstance();
+
+    private ImageView image;
+
+    private TextView title;
 
     private static Map<String, String> translator;
 
@@ -34,7 +51,12 @@ public class Daily extends Fragment implements View.OnClickListener {
 
         makeTranslator();
 
-        date = (TextView) v.findViewById(R.id.date);
+        monthDate = (TextView) v.findViewById(R.id.month);
+        dayDate = (TextView) v.findViewById(R.id.day);
+        title = (TextView) v.findViewById(R.id.daily_title);
+        title.setText(getResources().getString(R.string.cminda_nikolozi_title));
+
+        image = (ImageView) v.findViewById(R.id.daily_image);
         setDate();
 
         v.findViewById(R.id.yesterday).setOnClickListener(this);
@@ -60,7 +82,6 @@ public class Daily extends Fragment implements View.OnClickListener {
         translator.put("Friday",    "პარასკევი");
         translator.put("Saturday",  "შაბათი");
 
-
         translator.put("January",   "იანვარი");
         translator.put("February",  "თებერვალი");
         translator.put("March",     "მარტი");
@@ -79,6 +100,7 @@ public class Daily extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.calendar:
+                setLocale("ka");
                 DatePicker picker = new DatePicker(year, month, day);
                 picker.show(getActivity().getFragmentManager().beginTransaction(), "");
                 break;
@@ -98,6 +120,17 @@ public class Daily extends Fragment implements View.OnClickListener {
         }
     }
 
+    private void setLocale(String lang) {
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+
+        Locale myLocale = new Locale(lang);
+        conf.locale = myLocale;
+
+        res.updateConfiguration(conf, dm);
+    }
+
     public static void setDate() {
         day = main_calendar.get(Calendar.DAY_OF_MONTH);
         month = main_calendar.get(Calendar.MONTH);
@@ -108,7 +141,11 @@ public class Daily extends Fragment implements View.OnClickListener {
         String dayName = translator.get(s.split(",")[0]);
         String monthName = translator.get(s.split(" ")[1]);
 
-        date.setText(dayName + ", " + new SimpleDateFormat("d").format(main_calendar.getTime()) + " " + monthName + ", " + new SimpleDateFormat("yyyy").format(main_calendar.getTime()));
+        monthDate.setText(monthName
+//                        + "\n" + new SimpleDateFormat("d").format(main_calendar.getTime()) + "\n" + dayName + "\n" + new SimpleDateFormat("yyyy").format(main_calendar.getTime())
+        );
+
+        dayDate.setText(new SimpleDateFormat("dd").format(main_calendar.getTime()));
     }
 }
 

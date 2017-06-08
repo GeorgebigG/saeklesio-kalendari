@@ -22,7 +22,7 @@
     </style>
 
     <style name="MyActivities">
-        <item name="android:background">@drawable/religious_background</item>
+        <!--<item name="android:background">@drawable/religious_background</item>-->
     </style>
 
 </resources>

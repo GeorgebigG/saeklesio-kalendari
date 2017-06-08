@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.sitename.android.saeklesiokalendari.Activities.Options"
     tools:showIn="@layout/activity_eucharist_options"
-    android:background="@drawable/religious_background">
+    style="@style/MyActivities">
 
     <LinearLayout
         android:id="@+id/option_layout"

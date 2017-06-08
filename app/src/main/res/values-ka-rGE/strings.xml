@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Done">მზათაა</string>
+
+    <string-array name="months_values">
+        <item>იან</item>
+        <item>თებ</item>
+        <item>მარ</item>
+        <item>აპრ</item>
+        <item>მაი</item>
+        <item>ივნ</item>
+        <item>ივლ</item>
+        <item>აგვ</item>
+        <item>სექ</item>
+        <item>ოქტ</item>
+        <item>ნოე</item>
+        <item>დეკ</item>
+    </string-array>
+
+</resources>
