@@ -34,7 +34,10 @@ public class Options extends AppCompatActivity
         {
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             text = new TextView(this);
-            text.setTextAppearance(this, android.R.style.TextAppearance_Large);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                text.setTextAppearance(android.R.style.TextAppearance_Large);
+            else
+                text.setTextAppearance(this, android.R.style.TextAppearance_Large);
             lParams.gravity = Gravity.CENTER;
             text.setText(topics[i]);
             text.setTextColor(getResources().getColor(android.R.color.black));

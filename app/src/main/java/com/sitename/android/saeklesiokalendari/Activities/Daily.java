@@ -1,11 +1,7 @@
 package com.sitename.android.saeklesiokalendari.Activities;
 
-import android.app.DatePickerDialog;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,8 +16,6 @@ import android.widget.TextView;
 import com.sitename.android.saeklesiokalendari.Others.DatePicker;
 import com.sitename.android.saeklesiokalendari.R;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -126,9 +120,16 @@ public class Daily extends Fragment implements View.OnClickListener {
         Configuration conf = res.getConfiguration();
 
         Locale myLocale = new Locale(lang);
-        conf.locale = myLocale;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            conf.setLocale(myLocale);
+        else
+            conf.locale = myLocale;
 
-        res.updateConfiguration(conf, dm);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            getActivity().createConfigurationContext(conf);
+        else
+            res.updateConfiguration(conf, dm);
     }
 
     public static void setDate() {
