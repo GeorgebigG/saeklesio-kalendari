@@ -13,7 +13,6 @@ import com.sitename.android.saeklesiokalendari.R;
 public class FirstPage extends AppCompatActivity {
 
     private Daily daily;
-    private Eucharist eucharist;
     private Prayers prayers;
     private Library library;
     private static Context context;
@@ -26,7 +25,6 @@ public class FirstPage extends AppCompatActivity {
 
         context = this;
         daily = new Daily();
-        eucharist = new Eucharist();
         prayers = new Prayers();
         library = new Library();
         getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, daily).commit();
@@ -39,9 +37,6 @@ public class FirstPage extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_daily:
                         getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, daily).commit();
-                        return true;
-                    case R.id.navigation_eucharist:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, eucharist).commit();
                         return true;
                     case R.id.navigation_prayers:
                         getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, prayers).commit();

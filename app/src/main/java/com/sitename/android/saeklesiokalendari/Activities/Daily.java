@@ -35,6 +35,8 @@ public class Daily extends Fragment implements View.OnClickListener {
     private ImageView image;
 
     private TextView title;
+    private TextView text_1;
+    private TextView text_2;
 
     private static Map<String, String> translator;
 
@@ -45,13 +47,22 @@ public class Daily extends Fragment implements View.OnClickListener {
 
         makeTranslator();
 
+        init(v);
+        setDate();
+
+        return v;
+    }
+
+    private void init(View v) {
         monthDate = (TextView) v.findViewById(R.id.month);
         dayDate = (TextView) v.findViewById(R.id.day);
+
         title = (TextView) v.findViewById(R.id.daily_title);
         title.setText(getResources().getString(R.string.cminda_nikolozi_title));
 
         image = (ImageView) v.findViewById(R.id.daily_image);
-        setDate();
+        text_1 = (TextView) v.findViewById(R.id.text_1);
+        text_1.setText(getResources().getString(R.string.cminda_nikolozi));
 
         v.findViewById(R.id.yesterday).setOnClickListener(this);
         v.findViewById(R.id.tomorrow).setOnClickListener(this);
@@ -62,8 +73,6 @@ public class Daily extends Fragment implements View.OnClickListener {
             public void onClick(View v) {FirstPage.settingButtonClicked();}
         });
         v.findViewById(R.id.calendar).setOnClickListener(this);
-
-        return v;
     }
 
     private static void makeTranslator() {

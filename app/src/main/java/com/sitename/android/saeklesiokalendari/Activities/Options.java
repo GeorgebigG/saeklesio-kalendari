@@ -3,7 +3,6 @@ package com.sitename.android.saeklesiokalendari.Activities;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;

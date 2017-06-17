@@ -7,10 +7,6 @@ import android.os.Bundle;
 
 import com.sitename.android.saeklesiokalendari.Activities.Daily;
 
-/**
- * Created by George on 3/21/2017.
- */
-
 public class DatePicker extends DialogFragment {
     private int year, month, day;
 
