@@ -1,5 +1,6 @@
 package com.sitename.android.saeklesiokalendari.Activities;
 
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.PaintDrawable;
 import android.os.Bundle;
@@ -22,24 +23,28 @@ import java.util.ArrayList;
 
 public class Settings extends AppCompatActivity {
 
-    Button choose, def;
-    LinearLayout layout;
-    AlertDialog.Builder builder;
+    private Button choose, def;
+    private LinearLayout layout;
+    private RelativeLayout whole_screen;
 
+    private AlertDialog dialog;
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(Daily.TOOLBAR_COLOR);
+        toolbar.setSubtitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
         layout = (LinearLayout) findViewById(R.id.color_picker);
         if (layout.getParent() != null)
             ((ViewGroup) layout.getParent()).removeView(layout);
 
-        builder = new AlertDialog.Builder(Settings.this);
-        builder.setView(layout).setCancelable(true);
+        dialog = new AlertDialog.Builder(Settings.this).setView(layout).setCancelable(true).create();
 
         choose = (Button) findViewById(R.id.choose_color);
         choose.setOnClickListener(new View.OnClickListener() {
@@ -47,25 +52,36 @@ public class Settings extends AppCompatActivity {
             public void onClick(View v) {
                 if (layout.getParent() != null)
                     ((ViewGroup) layout.getParent()).removeView(layout);
-                builder.create().show();
+                dialog = new AlertDialog.Builder(Settings.this).setView(layout).setCancelable(true).create();
+                dialog.show();
             }
         });
 
         def = (Button) findViewById(R.id.default_color);
 
-        System.out.println(
-                android.R.color.holo_red_dark + "\n"
-                + android.R.color.holo_red_dark + "\n"
-        );
+        whole_screen = (RelativeLayout) findViewById(R.id.main_settings_layout);
+        whole_screen.setBackgroundColor(FirstPage.BACKGROUND_COLOR);
     }
 
     public void onClick(View v) {
+        dialog.dismiss();
         try {
-            FirstPage.BACKGROUND_COLOR = Integer.parseInt(v.getTag().toString());
+            FirstPage.BACKGROUND_COLOR = Daily.TOOLBAR_COLOR = getResources().getColor(Integer.parseInt(v.getTag().toString()));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        builder.create().dismiss();
+
+        toolbar.setBackgroundColor(Daily.TOOLBAR_COLOR);
+        whole_screen.setBackgroundColor(FirstPage.BACKGROUND_COLOR);
+    }
+
+    public void defaultColor(View v) {
+        Daily.TOOLBAR_COLOR = getResources().getColor(R.color.colorPrimary);
+        FirstPage.BACKGROUND_COLOR = Color.WHITE;
+        dialog.dismiss();
+
+        toolbar.setBackgroundColor(Daily.TOOLBAR_COLOR);
+        whole_screen.setBackgroundColor(FirstPage.BACKGROUND_COLOR);
     }
 }
 

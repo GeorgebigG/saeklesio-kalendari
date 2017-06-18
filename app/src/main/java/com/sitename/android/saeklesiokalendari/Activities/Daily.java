@@ -2,10 +2,12 @@ package com.sitename.android.saeklesiokalendari.Activities;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +35,8 @@ public class Daily extends Fragment implements View.OnClickListener {
     private static TextView dayDate;
     public static Calendar main_calendar = Calendar.getInstance();
 
+    public static int TOOLBAR_COLOR = -15101793;
+
     private ImageView image;
 
     public RelativeLayout layout;
@@ -40,6 +44,8 @@ public class Daily extends Fragment implements View.OnClickListener {
     private TextView title;
     private TextView text_1;
     private TextView text_2;
+
+    private Toolbar toolbar;
 
     private static Map<String, String> translator;
 
@@ -78,7 +84,21 @@ public class Daily extends Fragment implements View.OnClickListener {
         v.findViewById(R.id.calendar).setOnClickListener(this);
 
         layout = (RelativeLayout) v.findViewById(R.id.main_daily_layout);
+
+        toolbar = (Toolbar) v.findViewById(R.id.daily_toolbar);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        toolbar.setBackgroundColor(TOOLBAR_COLOR);
+    }
+
 
     private static void makeTranslator() {
         translator = new HashMap<String, String>();

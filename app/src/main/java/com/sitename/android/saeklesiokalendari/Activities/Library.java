@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ public class Library extends Fragment implements AdapterView.OnItemClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_library, container, false);
+
+        ((Toolbar) v.findViewById(R.id.library_toolbar)).setBackgroundColor(Daily.TOOLBAR_COLOR);
 
         libraries = new String[] {"1 თავი", "2 თავი", "3 თავი"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, libraries);

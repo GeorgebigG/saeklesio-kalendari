@@ -22,7 +22,7 @@ public class FirstPage extends AppCompatActivity {
 
     private LinearLayout layout;
 
-
+    BottomNavigationView tabs;
 
     public static int BACKGROUND_COLOR = Color.WHITE;
 
@@ -40,8 +40,8 @@ public class FirstPage extends AppCompatActivity {
         library = new Library();
         getSupportFragmentManager().beginTransaction().replace(R.id.basic_screen, daily).commit();
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.tabs);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        tabs = (BottomNavigationView) findViewById(R.id.tabs);
+        tabs.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -58,7 +58,6 @@ public class FirstPage extends AppCompatActivity {
                 }
                 return false;
             }
-
         });
     }
 
@@ -66,6 +65,7 @@ public class FirstPage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         layout.setBackgroundColor(BACKGROUND_COLOR);
+        tabs.setBackgroundColor(BACKGROUND_COLOR);
         System.out.println(BACKGROUND_COLOR);
     }
 

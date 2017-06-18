@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,9 @@ public class Prayers extends Fragment implements AdapterView.OnItemClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_prayers, container, false);
+
+        Toolbar toolbar = (Toolbar) v.findViewById(R.id.prayers_toolbar);
+        toolbar.setBackgroundColor(Daily.TOOLBAR_COLOR);
 
         prays = new String[] {"დილის ლოცვანი", "სამწმიდაობის ტროპარნი", "და ლოცვა სამებისადმი"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, prays);
