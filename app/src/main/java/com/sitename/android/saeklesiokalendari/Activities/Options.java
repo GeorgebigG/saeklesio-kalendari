@@ -2,6 +2,7 @@ package com.sitename.android.saeklesiokalendari.Activities;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -21,8 +22,8 @@ public class Options extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eucharist_options);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
+        ((CoordinatorLayout) findViewById(R.id.options_main_layout)).setBackgroundColor(FirstPage.BACKGROUND_COLOR);
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.option_layout);
         LinearLayout.LayoutParams lParams;

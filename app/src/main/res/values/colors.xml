@@ -3,4 +3,19 @@
     <color name="colorPrimary">#19909F</color>
     <color name="colorPrimaryDark">#2aa1a0</color>
     <color name="colorAccent">#FF4081</color>
+    
+    <color name="antique_white">#faebd7</color>
+    <color name="dark_blue">#003366</color>
+    <color name="dark_pastel_blue">#446998</color>
+    <color name="british_racing_green">#004225</color>
+    <color name="brown">#79443b</color>
+    <color name="dark_brown">#873260</color>
+    <color name="dark_pink">#f4c2c2</color>
+    <color name="light_green">#50c878</color>
+    <color name="pink">#ff77ff</color>
+    <color name="very_brown">#801818</color>
+    <color name="fallow">#c19a6b</color>
+    <color name="beau_blue">#bcd4e6</color>
+    <color name="cool_black">#0047ab</color>
+    <color name="dark_skin">#e9967a</color>
 </resources>

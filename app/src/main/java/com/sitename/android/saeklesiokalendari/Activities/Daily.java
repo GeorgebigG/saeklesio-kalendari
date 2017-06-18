@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sitename.android.saeklesiokalendari.Others.DatePicker;
@@ -33,6 +34,8 @@ public class Daily extends Fragment implements View.OnClickListener {
     public static Calendar main_calendar = Calendar.getInstance();
 
     private ImageView image;
+
+    public RelativeLayout layout;
 
     private TextView title;
     private TextView text_1;
@@ -73,6 +76,8 @@ public class Daily extends Fragment implements View.OnClickListener {
             public void onClick(View v) {FirstPage.settingButtonClicked();}
         });
         v.findViewById(R.id.calendar).setOnClickListener(this);
+
+        layout = (RelativeLayout) v.findViewById(R.id.main_daily_layout);
     }
 
     private static void makeTranslator() {
